@@ -5,12 +5,14 @@ import App from "./App.jsx";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Layout from "./components/Layout.jsx";
 import Error from "./components/error/Error.jsx";
+import Home from "./components/home/Home.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Home />} />
           <Route path="/test" element={<App />} />
         </Route>
         <Route path="*" element={<Error />} />

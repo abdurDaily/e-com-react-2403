@@ -19,3 +19,40 @@ li .active{
     color:#5c5cff;
     font-weight: 500;
 }
+
+
+.sliders_wraper .button-next{
+    background: red;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    right: 20px;
+    z-index: 50;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    box-shadow:3px 3px 30px #ffffff5d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.sliders_wraper .button-prev{
+background: red;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    z-index: 50;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    box-shadow: 3px 3px 30px #ffffff5d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
