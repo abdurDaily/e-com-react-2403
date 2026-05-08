@@ -8,13 +8,31 @@ import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
 import { GrFormNextLink } from "react-icons/gr";
 import { GrFormPreviousLink } from "react-icons/gr";
+import Countdown from "react-countdown";
 
 const Home = () => {
+  let offerTime = new Date("2026-05-09").toLocaleString();
+  console.log(offerTime);
+
+  const renderer = ({ days, hours, minutes, seconds, completed }) => {
+    if(completed){
+      return <span>Offer has expired</span>
+    }
+    return (
+      <div className="flex gap-5 text-center mt-5">
+          <div className="border px-5 py-2 font-bold ">{days} <p>Days</p> </div>
+          <div className="border px-5 py-2 font-bold ">{hours} <p>Hours</p> </div>
+          <div className="border px-5 py-2 font-bold ">{minutes} <p>Minutes</p> </div>
+          <div className="border px-5 py-2 font-bold ">{seconds} <p>Seconds</p> </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container py-3">
       <div className="grid gap-10 lg:grid-cols-12 ">
         {/* CATEGORIES */}
-        <div className="col-span-3  border border-red-100 ">
+        <div className="col-span-3  border border-red-100 hidden lg:block">
           <h4 className="bg-sky-300 text-white capitalize p-3">Categories </h4>
 
           {/* list */}
@@ -55,7 +73,7 @@ const Home = () => {
         </div>
 
         {/* SLIDERS */}
-        <div className="col-span-9">
+        <div className="col-span-9 hidden lg:block">
           <>
             <Swiper
               loop={true}
@@ -105,6 +123,10 @@ const Home = () => {
             </Swiper>
           </>
         </div>
+      </div>
+
+      <div>
+        <Countdown date={offerTime} renderer={renderer} />
       </div>
     </div>
   );
